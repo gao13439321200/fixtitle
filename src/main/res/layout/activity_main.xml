@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!--这是固定栏前面的布局，可以是任意布局-->
+            <RelativeLayout
+                android:id="@+id/headview"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="#09ffff"
+                android:focusable="true"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="这里是一个头布局"
+                    android:textSize="25sp"/>
+            </RelativeLayout>
+            <!--给固定栏定位的空view-->
+            <View
+                android:id="@+id/view_middle"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"/>
+            <!--固定栏原布局-->
+            <RelativeLayout
+                android:id="@+id/rl_middle"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                >
+                <!--这是固定栏-->
+                <Button
+                    android:id="@+id/tv_middle"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#ffccdd"
+                    android:gravity="center"
+                    android:text="这里是需要固定的布局"
+                    android:textSize="20sp"/>
+
+            </RelativeLayout>
+            <!--这是一个特别长的布局，因为会和scrollview产生滑动冲突，所以重写了一个listview-->
+            <com.example.linlin.test0520.MyListView
+                android:id="@+id/listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+    </ScrollView>
+
+    <!--这是标题栏需要固定的位置-->
+    <RelativeLayout
+        android:id="@+id/rl_top"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"/>
+
+
+</RelativeLayout>
